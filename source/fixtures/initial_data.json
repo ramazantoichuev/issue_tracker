@@ -1,0 +1,116 @@
+[
+{
+  "model": "issue_tracker.typemodel",
+  "pk": 3,
+  "fields": {
+    "name": "task"
+  }
+},
+{
+  "model": "issue_tracker.typemodel",
+  "pk": 4,
+  "fields": {
+    "name": "bug"
+  }
+},
+{
+  "model": "issue_tracker.typemodel",
+  "pk": 5,
+  "fields": {
+    "name": "enhancement"
+  }
+},
+{
+  "model": "issue_tracker.statusmodel",
+  "pk": 1,
+  "fields": {
+    "name": "new"
+  }
+},
+{
+  "model": "issue_tracker.statusmodel",
+  "pk": 2,
+  "fields": {
+    "name": "in progress"
+  }
+},
+{
+  "model": "issue_tracker.statusmodel",
+  "pk": 3,
+  "fields": {
+    "name": "done"
+  }
+},
+{
+  "model": "issue_tracker.issuemodel",
+  "pk": 1,
+  "fields": {
+    "created_at": "2026-06-10T06:24:29.970Z",
+    "updated_at": "2026-06-10T06:24:29.970Z",
+    "summary": "issue_1",
+    "description": "111111111111111111111111111111111111111",
+    "status": 1,
+    "type": 3
+  }
+},
+{
+  "model": "issue_tracker.issuemodel",
+  "pk": 2,
+  "fields": {
+    "created_at": "2026-06-10T06:24:54.653Z",
+    "updated_at": "2026-06-10T06:24:54.653Z",
+    "summary": "issue_2",
+    "description": "22222222222222222222222222222222222222222222222",
+    "status": 1,
+    "type": 4
+  }
+},
+{
+  "model": "issue_tracker.issuemodel",
+  "pk": 3,
+  "fields": {
+    "created_at": "2026-06-10T06:25:09.546Z",
+    "updated_at": "2026-06-10T06:25:09.546Z",
+    "summary": "issue_3",
+    "description": "",
+    "status": 2,
+    "type": 3
+  }
+},
+{
+  "model": "issue_tracker.issuemodel",
+  "pk": 4,
+  "fields": {
+    "created_at": "2026-06-10T06:25:23.554Z",
+    "updated_at": "2026-06-10T06:25:23.554Z",
+    "summary": "issue_4",
+    "description": "",
+    "status": 2,
+    "type": 4
+  }
+},
+{
+  "model": "issue_tracker.issuemodel",
+  "pk": 5,
+  "fields": {
+    "created_at": "2026-06-10T06:26:56.964Z",
+    "updated_at": "2026-06-10T06:26:56.964Z",
+    "summary": "Issue_5",
+    "description": "55555555555555555",
+    "status": 3,
+    "type": 5
+  }
+},
+{
+  "model": "issue_tracker.issuemodel",
+  "pk": 6,
+  "fields": {
+    "created_at": "2026-06-10T06:27:11.459Z",
+    "updated_at": "2026-06-10T06:27:11.459Z",
+    "summary": "issue_6",
+    "description": "66666666666666666666666666",
+    "status": 3,
+    "type": 5
+  }
+}
+]
