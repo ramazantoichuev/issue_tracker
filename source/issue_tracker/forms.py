@@ -14,8 +14,13 @@ class IssueForm(forms.ModelForm):
             else:
                 field.widget.attrs['class'] = 'form-control'
 
+        self.fields['summary'].widget.attrs['placeholder'] = 'Краткое описание'
+        self.fields['description'].widget.attrs['placeholder'] = 'Полное описание'
+
+
     status = forms.ModelChoiceField(queryset=StatusModel.objects.all())
     type = forms.ModelChoiceField(queryset=TypeModel.objects.all())
+
 
 
     class Meta:

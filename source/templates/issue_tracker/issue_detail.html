@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container py-4">
+    <div class="card mx-auto shadow-sm" style="max-width: 700px;">
+        <div class="card-body">
+            <h2 class="card-title text-success">Название: {{ issue.summary }}</h2>
+
+           <p> Описание:
+               {% if issue.description %} {{ issue.description }}
+               {% else %} Нет описания {% endif %}
+           </p>
+            <p>
+                Статус: {{ issue.status }}
+            </p>
+            <p>
+                Тип: {{issue.type}}
+            </p>
+            <p class="text-secondary">
+                Добавлено: {{ issue.created_at }}
+            </p>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
