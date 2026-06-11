@@ -1,4 +1,3 @@
-from typing import Type
 from django import forms
 from issue_tracker.models.issue import *
 
@@ -19,7 +18,10 @@ class IssueForm(forms.ModelForm):
 
 
     status = forms.ModelChoiceField(queryset=StatusModel.objects.all())
-    type = forms.ModelChoiceField(queryset=TypeModel.objects.all())
+    type = forms.ModelMultipleChoiceField(
+        queryset=TypeModel.objects.all(),
+        widget=forms.CheckboxSelectMultiple()
+    )
 
 
 

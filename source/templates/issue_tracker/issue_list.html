@@ -16,7 +16,11 @@
                     <div class="card-body text-secondary d-flex flex-column">
                         <p>Описание: {{ issue.description }}</p>
                         <p>Статус: {{issue.status}}</p>
-                        <p>Тип: {{ issue.type }}</p>
+                        <p>Тип: {% for t in issue.type.all %}
+                                    {{ t }}
+                                    {% if not forloop.last %},
+                                    {% endif %}
+                                {% endfor %}</p>
                         <div class="d-flex justify-content-between">
                             <a href="{% url 'detail' issue.pk %}" class="card-link">
                                 Подробнее

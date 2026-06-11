@@ -3,7 +3,7 @@ from issue_tracker.models.issue import IssueModel
 from issue_tracker.models import StatusModel, TypeModel
 
 class IssueTrackerAdmin(admin.ModelAdmin):
-    list_display = ('summary', 'description', 'status', 'type', 'created_at', 'updated_at')
+    list_display = ('summary', 'description', 'status', 'created_at', 'updated_at')
     search_fields = ('summary',)
     list_filter = ('type', 'status')
 
