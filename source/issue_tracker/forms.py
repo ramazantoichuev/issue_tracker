@@ -3,7 +3,6 @@ from issue_tracker.models.issue import *
 
 
 
-
 class IssueForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -23,6 +22,17 @@ class IssueForm(forms.ModelForm):
         widget=forms.CheckboxSelectMultiple()
     )
 
+    def clean_summary(self):
+        summary = self.cleaned_data.get('summary')
+        if len(summary) < 5:
+            raise forms.ValidationError('Краткое описание должно быть не менее 5 символов')
+        return summary
+
+    def clean_description(self):
+        description = self.cleaned_data.get('description')
+        if description and len(description) > 500:
+            raise forms.ValidationError('Описание не должно превышать 500 символов')
+        return description
 
 
     class Meta:
