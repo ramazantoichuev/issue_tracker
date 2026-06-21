@@ -25,20 +25,20 @@ class IssueDetailView(TemplateView):
 class IssueCreateView(View):
     def get(self, request):
         form = IssueForm()
-        return render(request, 'partial/issue_form.html', {'form': form})
+        return render(request, 'issue_tracker/issue_create.html', {'form': form})
 
     def post(self, request):
         form = IssueForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect('list')
-        return render(request, 'partial/issue_form.html', {'form': form})
+        return render(request, 'issue_tracker/issue_create.html', {'form': form})
 
 class IssueUpdateView(View):
     def get(self, request, pk):
         issue = get_object_or_404(IssueModel, pk=pk)
         form = IssueForm(instance=issue)
-        return render(request, 'partial/issue_form.html', {'form': form})
+        return render(request, 'issue_tracker/issue_update.html', {'form': form})
 
     def post(self, request, pk):
         issue = get_object_or_404(IssueModel, pk=pk)
@@ -46,7 +46,7 @@ class IssueUpdateView(View):
         if form.is_valid():
             form.save()
             return redirect('list')
-        return render(request, 'partial/issue_form.html', {'form': form})
+        return render(request, 'issue_tracker/issue_update.html', {'form': form})
 
 class IssueDeleteView(View):
     def get(self, request, pk):

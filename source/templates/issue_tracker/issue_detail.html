@@ -14,7 +14,7 @@
                 Статус: {{ issue.status }}
             </p>
             <p>
-                Тип: {{issue.type}}
+                Тип: {% for t in issue.type.all %}{{ t }}{% if not forloop.last %}, {% endif %}{% endfor %}
             </p>
             <p class="text-secondary">
                 Добавлено: {{ issue.created_at }}
