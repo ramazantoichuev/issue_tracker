@@ -1,4 +1,15 @@
 {% extends "base.html" %}
+{% block search %}
+    <form method="GET" class="d-flex me-2 ms-auto">
+        {{ search_form.search }}
+        <button type="submit" class="btn btn-primary btn-sm">Найти</button>
+    </form>
+{% endblock %}
+{% block new_pj %}
+    <a href="{% url 'project_create' %}" class="btn btn-primary btn-sm">Добавить проект</a>
+{% endblock %}
+
+
 {% block content %}
 
 <div class="container mt-3">
@@ -29,6 +40,26 @@
             <p>Проекты не найдены</p>
         {% endfor %}
     </div>
+</div>
+</div>
+
+    <nav class="mt-4">
+        <ul class="pagination justify-content-center">
+            {% if page_obj.has_previous %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page_obj.previous_page_number }}&search={{ request.GET.search }}">Назад</a>
+                </li>
+            {% endif %}
+            <li class="page-item disabled">
+                <span class="page-link">{{ page_obj.number }} из {{ page_obj.paginator.num_pages }}</span>
+            </li>
+            {% if page_obj.has_next %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page_obj.next_page_number }}&search={{ request.GET.search }}">Вперёд</a>
+                </li>
+            {% endif %}
+        </ul>
+    </nav>
 </div>
 
 {% endblock %}

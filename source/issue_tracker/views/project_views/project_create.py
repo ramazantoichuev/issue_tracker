@@ -11,3 +11,5 @@ class ProjectCreateView(CreateView):
     form_class = ProjectForm
     success_url = reverse_lazy('project_detail')
 
+    def get_success_url(self):
+        return reverse_lazy('project_detail', kwargs={'pk': self.object.pk})
