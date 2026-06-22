@@ -1,0 +1,3 @@
+from issue_tracker.views.issue_views.issue_update import IssueUpdateView
+from issue_tracker.views.issue_views.issue_delete import IssueDeleteView
+from issue_tracker.views.issue_views.issue_detail import IssueDetailView

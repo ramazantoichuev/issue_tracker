@@ -3,3 +3,4 @@ from issue_tracker.views.project_views.project_detail import ProjectDetailView
 from issue_tracker.views.project_views.project_create import ProjectCreateView
 from issue_tracker.views.project_views.project_update import ProjectUpdateView
 from issue_tracker.views.project_views.project_delete import ProjectDeleteView
+from issue_tracker.views.project_views.issue_create_in_project import IssueCreateInProjectView

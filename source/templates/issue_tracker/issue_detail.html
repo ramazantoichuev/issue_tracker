@@ -19,6 +19,8 @@
             <p class="text-secondary">
                 Добавлено: {{ issue.created_at }}
             </p>
+            <a href="{% url 'project_detail' issue.project.pk %}" class="btn btn-outline-secondary btn-sm">Назад к проекту</a>
+        </div>
         </div>
     </div>
 </div>
