@@ -9,7 +9,8 @@ class IssueModel(BaseModel):
     description = models.TextField(blank=True)
     status = models.ForeignKey(StatusModel, on_delete=models.RESTRICT)
     type = models.ManyToManyField(TypeModel, related_name='issues')
-    project = models.ForeignKey(ProjectModel, on_delete=models.RESTRICT)
+    project = models.ForeignKey(ProjectModel, on_delete=models.CASCADE)
+    is_deleted = models.BooleanField(default=False)
 
 
     def __str__(self):

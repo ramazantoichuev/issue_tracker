@@ -9,6 +9,7 @@ class ProjectListView(ListView):
     template_name = 'projects/project_list.html'
     context_object_name = 'projects'
     paginate_by = 5
+    ordering = ['-updated_at', '-created_at']
 
     def get_queryset(self):
         queryset = super().get_queryset()
