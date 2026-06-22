@@ -1,20 +1,13 @@
-from django.views import View
-from django.shortcuts import render, get_object_or_404, redirect
+from django.views.generic import UpdateView
+from django.urls import reverse_lazy
 from issue_tracker.models.issue import IssueModel
 from issue_tracker.forms import IssueForm
 
 
+class IssueUpdateView(UpdateView):
+    model = IssueModel
+    form_class = IssueForm
+    template_name = 'issue_tracker/issue_update.html'
 
-class IssueUpdateView(View):
-    def get(self, request, pk):
-        issue = get_object_or_404(IssueModel, pk=pk)
-        form = IssueForm(instance=issue)
-        return render(request, 'issue_tracker/issue_update.html', {'form': form, 'object': issue})
-
-    def post(self, request, pk):
-        issue = get_object_or_404(IssueModel, pk=pk)
-        form = IssueForm(request.POST, instance=issue)
-        if form.is_valid():
-            form.save()
-            return redirect('project_detail', pk=issue.project.pk)
-        return render(request, 'issue_tracker/issue_update.html', {'form': form, 'object': issue})
+    def get_success_url(self):
+        return reverse_lazy('project_detail', kwargs={'pk': self.object.project.pk})

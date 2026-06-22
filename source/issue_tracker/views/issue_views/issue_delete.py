@@ -1,15 +1,13 @@
-from django.views import View
-from django.shortcuts import render, get_object_or_404, redirect
+from django.urls import reverse_lazy
+from django.views.generic import DeleteView
+
 from issue_tracker.models.issue import IssueModel
 
 
-class IssueDeleteView(View):
-    def get(self, request, pk):
-        issue = get_object_or_404(IssueModel, pk=pk)
-        return render(request, 'issue_tracker/issue_delete.html', {'issue': issue})
+class IssueDeleteView(DeleteView):
+    template_name = 'issue_tracker/issue_delete.html'
+    model = IssueModel
 
-    def post(self, request, pk):
-        issue = get_object_or_404(IssueModel, pk=pk)
-        project_pk = issue.project.pk
-        issue.delete()
-        return redirect('project_detail', pk=project_pk)
+    def get_success_url(self):
+        return reverse_lazy('project_detail', kwargs={'pk': self.object.project.pk})
+
