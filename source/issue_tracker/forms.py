@@ -38,3 +38,22 @@ class IssueForm(forms.ModelForm):
     class Meta:
         model = IssueModel
         fields = ('summary', 'description','status','type')
+
+
+
+class ProjectForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field in self.fields.values():
+            field.widget.attrs['class'] = 'form-control'
+
+        self.fields['name'].widget.attrs['placeholder'] = 'Краткое описание'
+        self.fields['description'].widget.attrs['placeholder'] = 'Полное описание'
+
+    class Meta:
+        model = ProjectModel
+        fields = ('name', 'description', 'start_date', 'end_date')
+        widgets = {
+            'start_date': forms.DateInput(attrs={'type': 'date'}),
+            'end_date': forms.DateInput(attrs={'type': 'date'}),
+        }
