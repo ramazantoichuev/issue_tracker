@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'issue_tracker',
+    'accounts',
     'django_bootstrap5'
 ]
 
