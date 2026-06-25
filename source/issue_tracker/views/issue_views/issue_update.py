@@ -1,10 +1,13 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import UpdateView
 from django.urls import reverse_lazy
 from issue_tracker.models.issue import IssueModel
 from issue_tracker.forms import IssueForm
 
 
-class IssueUpdateView(UpdateView):
+
+
+class IssueUpdateView(LoginRequiredMixin,UpdateView):
     model = IssueModel
     form_class = IssueForm
     template_name = 'issue_tracker/issue_update.html'

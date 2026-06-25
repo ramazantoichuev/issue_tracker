@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.views.generic import CreateView
 from issue_tracker.forms import IssueForm
@@ -6,7 +7,7 @@ from issue_tracker.models.project import ProjectModel
 from django.shortcuts import get_object_or_404
 
 
-class IssueCreateInProjectView(CreateView):
+class IssueCreateInProjectView(LoginRequiredMixin,CreateView):
     model = IssueModel
     form_class = IssueForm
     template_name = 'issue_tracker/issue_create.html'

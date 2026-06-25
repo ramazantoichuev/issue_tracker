@@ -1,3 +1,4 @@
+
 from django.views.generic import DetailView
 from issue_tracker.models.issue import IssueModel
 
