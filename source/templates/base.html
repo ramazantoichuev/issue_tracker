@@ -16,17 +16,16 @@
         <div class="collapse navbar-collapse">
             {% block search %}{% endblock %}
             {% block new_pj %}{% endblock %}
-            <div class="d-flex align-items-center gap-2 ms-auto">
-                {% if user.is_authenticated %}
-                    <span class="navbar-text">{{ user.username }}</span>
-                    <form method="POST" action="{% url 'accounts:logout' %}">
-                        {% csrf_token %}
-                        <button type="submit" class="btn btn-outline-danger btn-sm">Выйти</button>
-                    </form>
-                {% else %}
-                    <a href="{% url 'accounts:login' %}" class="btn btn-outline-primary btn-sm">Войти</a>
-                {% endif %}
-            </div>
+            {% if user.is_authenticated %}
+            <span class="navbar-text mx-3">{{ user.username }}</span>
+            <form method="POST" action="{% url 'accounts:logout' %}">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-outline-danger btn-sm">Выйти</button>
+            </form>
+            {% else %}
+                <a href="{% url 'accounts:login' %}" class="btn btn-outline-primary btn-sm mx-3">Войти</a>
+                <a href="{% url 'accounts:register' %}" class="btn btn-primary btn-sm">Регистрация</a>
+            {% endif %}
         </div>
     </div>
 </nav>
