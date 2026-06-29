@@ -11,6 +11,7 @@
             <div>
                 <a href="{% url 'project_update' project.pk %}" class="btn btn-outline-warning btn-sm"><i class="bi bi-pencil-square"></i></a>
                 <a href="{% url 'project_delete' project.pk %}" class="btn btn-outline-danger btn-sm"><i class="bi bi-trash3"></i></a>
+                <a href="{% url 'project_users' project.pk %}" class="btn btn-outline-primary btn-sm"><i class="bi bi-people"></i></a>
             </div>
         </div>
         <div class="card-body">
@@ -39,8 +40,15 @@
                         <p>Тип: {% for t in issue.type.all %}{{ t }}{% if not forloop.last %}, {% endif %}{% endfor %}</p>
                         <a href="{% url 'detail' issue.pk %}" class="card-link">Подробнее</a>
                     </div>
+                    <div class="card-body text-secondary">
+                        <h5>Участники:</h5>
+                        {% for user in project.users.all %}
+                            <span class="badge bg-secondary">{{ user.username }}</span>
+                        {% endfor %}
+                    </div>
                 </div>
             </div>
+
         {% empty %}
             <p>Нет задач</p>
         {% endfor %}

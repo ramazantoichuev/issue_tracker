@@ -10,7 +10,11 @@ class ProjectCreateView(LoginRequiredMixin,CreateView):
     template_name = 'projects/project_create.html'
     model = ProjectModel
     form_class = ProjectForm
-    success_url = reverse_lazy('project_detail')
 
     def get_success_url(self):
         return reverse_lazy('project_detail', kwargs={'pk': self.object.pk})
+
+    def form_valid(self, form):
+        response = super().form_valid(form)
+        self.object.users.add(self.request.user)
+        return response

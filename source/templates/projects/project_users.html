@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card my-5">
+    <div class="card-header fs-4 text-center">Участники проекта: {{ project.name }}</div>
+    <div class="card-body">
+        <h5>Текущие участники:</h5>
+        {% for user in project.users.all %}
+            <form method="POST" class="d-inline">
+                {% csrf_token %}
+                <input type="hidden" name="user_id" value="{{ user.pk }}">
+                <input type="hidden" name="action" value="remove">
+                <button type="submit" class="btn btn-outline-danger btn-sm mb-1">{{ user.username }} ✕</button>
+            </form>
+        {% empty %}
+            <p>Нет участников</p>
+        {% endfor %}
+
+        <h5 class="mt-4">Добавить участника:</h5>
+        {% for user in users %}
+            {% if user not in project.users.all %}
+                <form method="POST" class="d-inline">
+                    {% csrf_token %}
+                    <input type="hidden" name="user_id" value="{{ user.pk }}">
+                    <input type="hidden" name="action" value="add">
+                    <button type="submit" class="btn btn-outline-success btn-sm mb-1">{{ user.username }} +</button>
+                </form>
+            {% endif %}
+        {% endfor %}
+    </div>
+    <div class="card-footer">
+        <a href="{% url 'project_detail' project.pk %}" class="btn btn-secondary btn-sm">Назад</a>
+    </div>
+</div>
+{% endblock %}
