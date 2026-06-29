@@ -1,6 +1,7 @@
 from django.contrib.auth import login
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
+from django.core.exceptions import PermissionDenied
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse_lazy
 from django.views import View
@@ -8,7 +9,7 @@ from django.views.generic import CreateView
 
 from accounts.forms import RegisterForm
 from issue_tracker.models import ProjectModel
-
+from issue_tracker.permissions import is_manager, is_lead, is_project_member
 
 
 class RegisterView(CreateView):
@@ -22,6 +23,14 @@ class RegisterView(CreateView):
         return redirect(self.success_url)
 
 class ProjectUsersView(LoginRequiredMixin, View):
+
+    def dispatch(self, request, *args, **kwargs):
+        project = get_object_or_404(ProjectModel, pk=kwargs['pk'])
+        is_allowed = is_manager(request.user) or is_lead(request.user)
+        if not (is_allowed and is_project_member(request.user, project)):
+            raise PermissionDenied
+        return super().dispatch(request, *args, **kwargs)
+
     def get(self, request, pk):
         project = get_object_or_404(ProjectModel, pk=pk)
         users = User.objects.all()

@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 {% block new_pj %}
-    <a href="{% url 'issue_create_in_project' project.pk %}" class="btn btn-primary btn-sm ms-auto">Добавить задачу</a>
+    {% if request.user.groups.all.0.name == 'Project Manager' or request.user.groups.all.0.name == 'Team Lead' or request.user.groups.all.0.name == 'Developer' %}
+        {% if project in request.user.projects.all %}
+            <a href="{% url 'issue_create_in_project' project.pk %}" class="btn btn-primary btn-sm ms-auto">Добавить задачу</a>
+        {% endif %}
+    {% endif %}
 {% endblock %}
 {% block content %}
 
@@ -9,20 +13,34 @@
         <div class="card-header d-flex justify-content-between">
             <h3>{{ project.name }}</h3>
             <div>
-                <a href="{% url 'project_update' project.pk %}" class="btn btn-outline-warning btn-sm"><i class="bi bi-pencil-square"></i></a>
-                <a href="{% url 'project_delete' project.pk %}" class="btn btn-outline-danger btn-sm"><i class="bi bi-trash3"></i></a>
-                <a href="{% url 'project_users' project.pk %}" class="btn btn-outline-primary btn-sm"><i class="bi bi-people"></i></a>
+                {% if perms.issue_tracker.change_projectmodel and project in request.user.projects.all %}
+                    <a href="{% url 'project_update' project.pk %}" class="btn btn-outline-warning btn-sm"><i class="bi bi-pencil-square"></i></a>
+                    <a href="{% url 'project_delete' project.pk %}" class="btn btn-outline-danger btn-sm"><i class="bi bi-trash3"></i></a>
+                {% endif %}
+                {% if perms.issue_tracker.change_projectmodel or request.user.groups.filter %}
+                    {% if project in request.user.projects.all %}
+                        <a href="{% url 'project_users' project.pk %}" class="btn btn-outline-primary btn-sm"><i class="bi bi-people"></i></a>
+                    {% endif %}
+                {% endif %}
             </div>
         </div>
         <div class="card-body">
             <p>Описание: {{ project.description }}</p>
             <p>Дата начала: {{ project.start_date }}</p>
             <p>Дата окончания: {{ project.end_date|default:"Не указана" }}</p>
+            <div>
+                <strong>Участники:</strong>
+                {% for user in project.users.all %}
+                    <span class="badge bg-secondary">{{ user.username }}</span>
+                {% empty %}
+                    <span class="text-muted">Нет участников</span>
+                {% endfor %}
+            </div>
         </div>
     </div>
 
     <div class="d-flex justify-content-between align-items-center my-2">
-    <h4 class="mt-4">Задачи проекта</h4>
+        <h4 class="mt-4">Задачи проекта</h4>
     </div>
     <div class="row row-cols-md-3 g-4">
         {% for issue in issues %}
@@ -31,8 +49,12 @@
                     <div class="card-header d-flex justify-content-between">
                         <h5 class="card-title">{{ issue.summary }}</h5>
                         <div class="icon ms-auto">
-                            <a href="{% url 'update' issue.pk %}" class="btn btn-outline-warning btn-sm"><i class="bi bi-pencil-square"></i></a>
-                            <a href="{% url 'delete' issue.pk %}" class="btn btn-outline-danger btn-sm"><i class="bi bi-trash3"></i></a>
+                            {% if project in request.user.projects.all %}
+                                <a href="{% url 'update' issue.pk %}" class="btn btn-outline-warning btn-sm"><i class="bi bi-pencil-square"></i></a>
+                                {% if perms.issue_tracker.delete_issuemodel %}
+                                    <a href="{% url 'delete' issue.pk %}" class="btn btn-outline-danger btn-sm"><i class="bi bi-trash3"></i></a>
+                                {% endif %}
+                            {% endif %}
                         </div>
                     </div>
                     <div class="card-body text-secondary">
@@ -40,15 +62,8 @@
                         <p>Тип: {% for t in issue.type.all %}{{ t }}{% if not forloop.last %}, {% endif %}{% endfor %}</p>
                         <a href="{% url 'detail' issue.pk %}" class="card-link">Подробнее</a>
                     </div>
-                    <div class="card-body text-secondary">
-                        <h5>Участники:</h5>
-                        {% for user in project.users.all %}
-                            <span class="badge bg-secondary">{{ user.username }}</span>
-                        {% endfor %}
-                    </div>
                 </div>
             </div>
-
         {% empty %}
             <p>Нет задач</p>
         {% endfor %}
