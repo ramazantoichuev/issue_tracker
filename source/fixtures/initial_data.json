@@ -1,477 +1,507 @@
 [
-{
-  "model": "issue_tracker.typemodel",
-  "pk": 3,
-  "fields": {
-    "name": "task"
+  {
+    "model": "issue_tracker.typemodel",
+    "pk": 3,
+    "fields": {
+      "name": "task"
+    }
+  },
+  {
+    "model": "issue_tracker.typemodel",
+    "pk": 4,
+    "fields": {
+      "name": "bug"
+    }
+  },
+  {
+    "model": "issue_tracker.typemodel",
+    "pk": 5,
+    "fields": {
+      "name": "enhancement"
+    }
+  },
+  {
+    "model": "issue_tracker.statusmodel",
+    "pk": 1,
+    "fields": {
+      "name": "new"
+    }
+  },
+  {
+    "model": "issue_tracker.statusmodel",
+    "pk": 2,
+    "fields": {
+      "name": "in progress"
+    }
+  },
+  {
+    "model": "issue_tracker.statusmodel",
+    "pk": 3,
+    "fields": {
+      "name": "done"
+    }
+  },
+  {
+    "model": "issue_tracker.projectmodel",
+    "pk": 1,
+    "fields": {
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-06-22T11:26:54.842Z",
+      "name": "Test Project",
+      "description": "Test project description",
+      "start_date": "2026-01-02",
+      "end_date": null,
+      "users": [
+        2,
+        3,
+        4
+      ]
+    }
+  },
+  {
+    "model": "issue_tracker.projectmodel",
+    "pk": 2,
+    "fields": {
+      "created_at": "2026-01-02T00:00:00Z",
+      "updated_at": "2026-01-02T00:00:00Z",
+      "name": "Website Redesign",
+      "description": "Website redesign project",
+      "start_date": "2026-02-01",
+      "end_date": "2026-06-01",
+      "users": [
+        2,
+        3,
+        4
+      ]
+    }
+  },
+  {
+    "model": "issue_tracker.projectmodel",
+    "pk": 3,
+    "fields": {
+      "created_at": "2026-01-03T00:00:00Z",
+      "updated_at": "2026-01-03T00:00:00Z",
+      "name": "Mobile App",
+      "description": "Mobile application",
+      "start_date": "2026-03-01",
+      "end_date": null,
+      "users": [
+        2,
+        3
+      ]
+    }
+  },
+  {
+    "model": "issue_tracker.projectmodel",
+    "pk": 4,
+    "fields": {
+      "created_at": "2026-01-04T00:00:00Z",
+      "updated_at": "2026-01-04T00:00:00Z",
+      "name": "API Backend",
+      "description": "Backend API service",
+      "start_date": "2026-01-15",
+      "end_date": "2026-07-01",
+      "users": [
+        2,
+        3
+      ]
+    }
+  },
+  {
+    "model": "issue_tracker.projectmodel",
+    "pk": 5,
+    "fields": {
+      "created_at": "2026-01-05T00:00:00Z",
+      "updated_at": "2026-01-05T00:00:00Z",
+      "name": "Admin Panel",
+      "description": "Admin panel",
+      "start_date": "2026-02-15",
+      "end_date": null,
+      "users": [
+        2
+      ]
+    }
+  },
+  {
+    "model": "issue_tracker.projectmodel",
+    "pk": 6,
+    "fields": {
+      "created_at": "2026-01-06T00:00:00Z",
+      "updated_at": "2026-01-06T00:00:00Z",
+      "name": "Payment System",
+      "description": "Payment system",
+      "start_date": "2026-03-15",
+      "end_date": "2026-08-01",
+      "users": [
+        2
+      ]
+    }
+  },
+  {
+    "model": "issue_tracker.projectmodel",
+    "pk": 7,
+    "fields": {
+      "created_at": "2026-01-07T00:00:00Z",
+      "updated_at": "2026-01-07T00:00:00Z",
+      "name": "Analytics Dashboard",
+      "description": "Analytics dashboard",
+      "start_date": "2026-04-01",
+      "end_date": null,
+      "users": [
+        2
+      ]
+    }
+  },
+  {
+    "model": "issue_tracker.projectmodel",
+    "pk": 8,
+    "fields": {
+      "created_at": "2026-01-08T00:00:00Z",
+      "updated_at": "2026-01-08T00:00:00Z",
+      "name": "Notification Service",
+      "description": "Notification service",
+      "start_date": "2026-05-01",
+      "end_date": "2026-09-01",
+      "users": [
+        2
+      ]
+    }
+  },
+  {
+    "model": "issue_tracker.issuemodel",
+    "pk": 4,
+    "fields": {
+      "created_at": "2026-06-10T06:25:23.554Z",
+      "updated_at": "2026-06-10T06:25:23.554Z",
+      "summary": "issue_4",
+      "description": "",
+      "status": 2,
+      "project": 1,
+      "is_deleted": false,
+      "type": [
+        4
+      ]
+    }
+  },
+  {
+    "model": "issue_tracker.issuemodel",
+    "pk": 18,
+    "fields": {
+      "created_at": "2026-06-01T10:00:00Z",
+      "updated_at": "2026-06-01T10:00:00Z",
+      "summary": "Fix navbar",
+      "description": "Navbar broken on mobile",
+      "status": 1,
+      "project": 2,
+      "is_deleted": false,
+      "type": [
+        4
+      ]
+    }
+  },
+  {
+    "model": "issue_tracker.issuemodel",
+    "pk": 19,
+    "fields": {
+      "created_at": "2026-06-01T11:00:00Z",
+      "updated_at": "2026-06-01T11:00:00Z",
+      "summary": "Update fonts",
+      "description": "Change fonts to new brand",
+      "status": 2,
+      "project": 2,
+      "is_deleted": false,
+      "type": [
+        3
+      ]
+    }
+  },
+  {
+    "model": "issue_tracker.issuemodel",
+    "pk": 20,
+    "fields": {
+      "created_at": "2026-06-01T12:00:00Z",
+      "updated_at": "2026-06-01T12:00:00Z",
+      "summary": "Add dark mode",
+      "description": "Implement dark mode",
+      "status": 1,
+      "project": 2,
+      "is_deleted": false,
+      "type": [
+        5
+      ]
+    }
+  },
+  {
+    "model": "issue_tracker.issuemodel",
+    "pk": 21,
+    "fields": {
+      "created_at": "2026-06-02T10:00:00Z",
+      "updated_at": "2026-06-02T10:00:00Z",
+      "summary": "Login screen bug",
+      "description": "Login crashes on iOS",
+      "status": 1,
+      "project": 3,
+      "is_deleted": false,
+      "type": [
+        4
+      ]
+    }
+  },
+  {
+    "model": "issue_tracker.issuemodel",
+    "pk": 22,
+    "fields": {
+      "created_at": "2026-06-02T11:00:00Z",
+      "updated_at": "2026-06-02T11:00:00Z",
+      "summary": "Push notifications",
+      "description": "Add push notifications",
+      "status": 2,
+      "project": 3,
+      "is_deleted": false,
+      "type": [
+        5
+      ]
+    }
+  },
+  {
+    "model": "issue_tracker.issuemodel",
+    "pk": 23,
+    "fields": {
+      "created_at": "2026-06-02T12:00:00Z",
+      "updated_at": "2026-06-02T12:00:00Z",
+      "summary": "Offline mode",
+      "description": "Support offline mode",
+      "status": 1,
+      "project": 3,
+      "is_deleted": false,
+      "type": [
+        3
+      ]
+    }
+  },
+  {
+    "model": "issue_tracker.issuemodel",
+    "pk": 24,
+    "fields": {
+      "created_at": "2026-06-03T10:00:00Z",
+      "updated_at": "2026-06-03T10:00:00Z",
+      "summary": "API rate limiting",
+      "description": "Add rate limiting",
+      "status": 2,
+      "project": 4,
+      "is_deleted": false,
+      "type": [
+        3
+      ]
+    }
+  },
+  {
+    "model": "issue_tracker.issuemodel",
+    "pk": 25,
+    "fields": {
+      "created_at": "2026-06-03T11:00:00Z",
+      "updated_at": "2026-06-03T11:00:00Z",
+      "summary": "Fix 500 error",
+      "description": "API returns 500",
+      "status": 1,
+      "project": 4,
+      "is_deleted": false,
+      "type": [
+        4
+      ]
+    }
+  },
+  {
+    "model": "issue_tracker.issuemodel",
+    "pk": 26,
+    "fields": {
+      "created_at": "2026-06-03T12:00:00Z",
+      "updated_at": "2026-06-03T12:00:00Z",
+      "summary": "Add pagination",
+      "description": "Paginate API responses",
+      "status": 3,
+      "project": 4,
+      "is_deleted": false,
+      "type": [
+        5
+      ]
+    }
+  },
+  {
+    "model": "issue_tracker.issuemodel",
+    "pk": 27,
+    "fields": {
+      "created_at": "2026-06-04T10:00:00Z",
+      "updated_at": "2026-06-04T10:00:00Z",
+      "summary": "User management",
+      "description": "Add user roles",
+      "status": 1,
+      "project": 5,
+      "is_deleted": false,
+      "type": [
+        3
+      ]
+    }
+  },
+  {
+    "model": "issue_tracker.issuemodel",
+    "pk": 28,
+    "fields": {
+      "created_at": "2026-06-04T11:00:00Z",
+      "updated_at": "2026-06-04T11:00:00Z",
+      "summary": "Dashboard bug",
+      "description": "Charts not loading",
+      "status": 2,
+      "project": 5,
+      "is_deleted": false,
+      "type": [
+        4
+      ]
+    }
+  },
+  {
+    "model": "issue_tracker.issuemodel",
+    "pk": 29,
+    "fields": {
+      "created_at": "2026-06-05T10:00:00Z",
+      "updated_at": "2026-06-05T10:00:00Z",
+      "summary": "Payment gateway",
+      "description": "Integrate Stripe",
+      "status": 1,
+      "project": 6,
+      "is_deleted": false,
+      "type": [
+        3
+      ]
+    }
+  },
+  {
+    "model": "issue_tracker.issuemodel",
+    "pk": 30,
+    "fields": {
+      "created_at": "2026-06-05T11:00:00Z",
+      "updated_at": "2026-06-05T11:00:00Z",
+      "summary": "Refund bug",
+      "description": "Refunds not processing",
+      "status": 2,
+      "project": 6,
+      "is_deleted": false,
+      "type": [
+        4
+      ]
+    }
+  },
+  {
+    "model": "issue_tracker.issuemodel",
+    "pk": 31,
+    "fields": {
+      "created_at": "2026-06-05T12:00:00Z",
+      "updated_at": "2026-06-05T12:00:00Z",
+      "summary": "Invoice generation",
+      "description": "Auto generate invoices",
+      "status": 3,
+      "project": 6,
+      "is_deleted": false,
+      "type": [
+        5
+      ]
+    }
+  },
+  {
+    "model": "issue_tracker.issuemodel",
+    "pk": 32,
+    "fields": {
+      "created_at": "2026-06-06T10:00:00Z",
+      "updated_at": "2026-06-06T10:00:00Z",
+      "summary": "Add charts",
+      "description": "Add bar charts",
+      "status": 1,
+      "project": 7,
+      "is_deleted": false,
+      "type": [
+        5
+      ]
+    }
+  },
+  {
+    "model": "issue_tracker.issuemodel",
+    "pk": 33,
+    "fields": {
+      "created_at": "2026-06-06T11:00:00Z",
+      "updated_at": "2026-06-06T11:00:00Z",
+      "summary": "Export to CSV",
+      "description": "Export data to CSV",
+      "status": 2,
+      "project": 7,
+      "is_deleted": false,
+      "type": [
+        3
+      ]
+    }
+  },
+  {
+    "model": "issue_tracker.issuemodel",
+    "pk": 34,
+    "fields": {
+      "created_at": "2026-06-07T10:00:00Z",
+      "updated_at": "2026-06-07T10:00:00Z",
+      "summary": "Email notifications",
+      "description": "Send email alerts",
+      "status": 1,
+      "project": 8,
+      "is_deleted": false,
+      "type": [
+        3
+      ]
+    }
+  },
+  {
+    "model": "issue_tracker.issuemodel",
+    "pk": 35,
+    "fields": {
+      "created_at": "2026-06-07T11:00:00Z",
+      "updated_at": "2026-06-07T11:00:00Z",
+      "summary": "SMS bug",
+      "description": "SMS not sending",
+      "status": 2,
+      "project": 8,
+      "is_deleted": false,
+      "type": [
+        4
+      ]
+    }
+  },
+  {
+    "model": "issue_tracker.issuemodel",
+    "pk": 36,
+    "fields": {
+      "created_at": "2026-06-07T12:00:00Z",
+      "updated_at": "2026-06-07T12:00:00Z",
+      "summary": "Webhook support",
+      "description": "Add webhook support",
+      "status": 3,
+      "project": 8,
+      "is_deleted": false,
+      "type": [
+        5
+      ]
+    }
+  },
+  {
+    "model": "issue_tracker.issuemodel",
+    "pk": 37,
+    "fields": {
+      "created_at": "2026-06-22T11:40:50.111Z",
+      "updated_at": "2026-06-22T11:40:50.111Z",
+      "summary": "is_333w",
+      "description": "ergfw",
+      "status": 2,
+      "project": 1,
+      "is_deleted": false,
+      "type": [
+        4,
+        5
+      ]
+    }
   }
-},
-{
-  "model": "issue_tracker.typemodel",
-  "pk": 4,
-  "fields": {
-    "name": "bug"
-  }
-},
-{
-  "model": "issue_tracker.typemodel",
-  "pk": 5,
-  "fields": {
-    "name": "enhancement"
-  }
-},
-{
-  "model": "issue_tracker.statusmodel",
-  "pk": 1,
-  "fields": {
-    "name": "new"
-  }
-},
-{
-  "model": "issue_tracker.statusmodel",
-  "pk": 2,
-  "fields": {
-    "name": "in progress"
-  }
-},
-{
-  "model": "issue_tracker.statusmodel",
-  "pk": 3,
-  "fields": {
-    "name": "done"
-  }
-},
-{
-  "model": "issue_tracker.projectmodel",
-  "pk": 1,
-  "fields": {
-    "created_at": "2026-01-01T00:00:00Z",
-    "updated_at": "2026-06-22T11:26:54.842Z",
-    "name": "Test Project_111",
-    "description": "╥хёЄют√щ яЁюхъЄ",
-    "start_date": "2026-01-02",
-    "end_date": null
-  }
-},
-{
-  "model": "issue_tracker.projectmodel",
-  "pk": 2,
-  "fields": {
-    "created_at": "2026-01-02T00:00:00Z",
-    "updated_at": "2026-01-02T00:00:00Z",
-    "name": "Website Redesign",
-    "description": "╨хфшчрщэ ёрщЄр ъюьярэшш",
-    "start_date": "2026-02-01",
-    "end_date": "2026-06-01"
-  }
-},
-{
-  "model": "issue_tracker.projectmodel",
-  "pk": 3,
-  "fields": {
-    "created_at": "2026-01-03T00:00:00Z",
-    "updated_at": "2026-01-03T00:00:00Z",
-    "name": "Mobile App",
-    "description": "╠юсшы№эюх яЁшыюцхэшх",
-    "start_date": "2026-03-01",
-    "end_date": null
-  }
-},
-{
-  "model": "issue_tracker.projectmodel",
-  "pk": 4,
-  "fields": {
-    "created_at": "2026-01-04T00:00:00Z",
-    "updated_at": "2026-01-04T00:00:00Z",
-    "name": "API Backend",
-    "description": "┴¤ъхэф API ёхЁтшё",
-    "start_date": "2026-01-15",
-    "end_date": "2026-07-01"
-  }
-},
-{
-  "model": "issue_tracker.projectmodel",
-  "pk": 5,
-  "fields": {
-    "created_at": "2026-01-05T00:00:00Z",
-    "updated_at": "2026-01-05T00:00:00Z",
-    "name": "Admin Panel",
-    "description": "╧рэхы№ рфьшэшёЄЁрЄюЁр",
-    "start_date": "2026-02-15",
-    "end_date": null
-  }
-},
-{
-  "model": "issue_tracker.projectmodel",
-  "pk": 6,
-  "fields": {
-    "created_at": "2026-01-06T00:00:00Z",
-    "updated_at": "2026-01-06T00:00:00Z",
-    "name": "Payment System",
-    "description": "╤шёЄхьр юяырЄ√",
-    "start_date": "2026-03-15",
-    "end_date": "2026-08-01"
-  }
-},
-{
-  "model": "issue_tracker.projectmodel",
-  "pk": 7,
-  "fields": {
-    "created_at": "2026-01-07T00:00:00Z",
-    "updated_at": "2026-01-07T00:00:00Z",
-    "name": "Analytics Dashboard",
-    "description": "─р°сюЁф рэрышЄшъш",
-    "start_date": "2026-04-01",
-    "end_date": null
-  }
-},
-{
-  "model": "issue_tracker.projectmodel",
-  "pk": 8,
-  "fields": {
-    "created_at": "2026-01-08T00:00:00Z",
-    "updated_at": "2026-01-08T00:00:00Z",
-    "name": "Notification Service",
-    "description": "╤хЁтшё єтхфюьыхэшщ",
-    "start_date": "2026-05-01",
-    "end_date": "2026-09-01"
-  }
-},
-{
-  "model": "issue_tracker.issuemodel",
-  "pk": 4,
-  "fields": {
-    "created_at": "2026-06-10T06:25:23.554Z",
-    "updated_at": "2026-06-10T06:25:23.554Z",
-    "summary": "issue_4",
-    "description": "",
-    "status": 2,
-    "project": 1,
-    "is_deleted": false,
-    "type": [
-      4
-    ]
-  }
-},
-{
-  "model": "issue_tracker.issuemodel",
-  "pk": 18,
-  "fields": {
-    "created_at": "2026-06-01T10:00:00Z",
-    "updated_at": "2026-06-01T10:00:00Z",
-    "summary": "Fix navbar",
-    "description": "Navbar broken on mobile",
-    "status": 1,
-    "project": 2,
-    "is_deleted": false,
-    "type": [
-      4
-    ]
-  }
-},
-{
-  "model": "issue_tracker.issuemodel",
-  "pk": 19,
-  "fields": {
-    "created_at": "2026-06-01T11:00:00Z",
-    "updated_at": "2026-06-01T11:00:00Z",
-    "summary": "Update fonts",
-    "description": "Change fonts to new brand",
-    "status": 2,
-    "project": 2,
-    "is_deleted": false,
-    "type": [
-      3
-    ]
-  }
-},
-{
-  "model": "issue_tracker.issuemodel",
-  "pk": 20,
-  "fields": {
-    "created_at": "2026-06-01T12:00:00Z",
-    "updated_at": "2026-06-01T12:00:00Z",
-    "summary": "Add dark mode",
-    "description": "Implement dark mode",
-    "status": 1,
-    "project": 2,
-    "is_deleted": false,
-    "type": [
-      5
-    ]
-  }
-},
-{
-  "model": "issue_tracker.issuemodel",
-  "pk": 21,
-  "fields": {
-    "created_at": "2026-06-02T10:00:00Z",
-    "updated_at": "2026-06-02T10:00:00Z",
-    "summary": "Login screen bug",
-    "description": "Login crashes on iOS",
-    "status": 1,
-    "project": 3,
-    "is_deleted": false,
-    "type": [
-      4
-    ]
-  }
-},
-{
-  "model": "issue_tracker.issuemodel",
-  "pk": 22,
-  "fields": {
-    "created_at": "2026-06-02T11:00:00Z",
-    "updated_at": "2026-06-02T11:00:00Z",
-    "summary": "Push notifications",
-    "description": "Add push notifications",
-    "status": 2,
-    "project": 3,
-    "is_deleted": false,
-    "type": [
-      5
-    ]
-  }
-},
-{
-  "model": "issue_tracker.issuemodel",
-  "pk": 23,
-  "fields": {
-    "created_at": "2026-06-02T12:00:00Z",
-    "updated_at": "2026-06-02T12:00:00Z",
-    "summary": "Offline mode",
-    "description": "Support offline mode",
-    "status": 1,
-    "project": 3,
-    "is_deleted": false,
-    "type": [
-      3
-    ]
-  }
-},
-{
-  "model": "issue_tracker.issuemodel",
-  "pk": 24,
-  "fields": {
-    "created_at": "2026-06-03T10:00:00Z",
-    "updated_at": "2026-06-03T10:00:00Z",
-    "summary": "API rate limiting",
-    "description": "Add rate limiting",
-    "status": 2,
-    "project": 4,
-    "is_deleted": false,
-    "type": [
-      3
-    ]
-  }
-},
-{
-  "model": "issue_tracker.issuemodel",
-  "pk": 25,
-  "fields": {
-    "created_at": "2026-06-03T11:00:00Z",
-    "updated_at": "2026-06-03T11:00:00Z",
-    "summary": "Fix 500 error",
-    "description": "API returns 500",
-    "status": 1,
-    "project": 4,
-    "is_deleted": false,
-    "type": [
-      4
-    ]
-  }
-},
-{
-  "model": "issue_tracker.issuemodel",
-  "pk": 26,
-  "fields": {
-    "created_at": "2026-06-03T12:00:00Z",
-    "updated_at": "2026-06-03T12:00:00Z",
-    "summary": "Add pagination",
-    "description": "Paginate API responses",
-    "status": 3,
-    "project": 4,
-    "is_deleted": false,
-    "type": [
-      5
-    ]
-  }
-},
-{
-  "model": "issue_tracker.issuemodel",
-  "pk": 27,
-  "fields": {
-    "created_at": "2026-06-04T10:00:00Z",
-    "updated_at": "2026-06-04T10:00:00Z",
-    "summary": "User management",
-    "description": "Add user roles",
-    "status": 1,
-    "project": 5,
-    "is_deleted": false,
-    "type": [
-      3
-    ]
-  }
-},
-{
-  "model": "issue_tracker.issuemodel",
-  "pk": 28,
-  "fields": {
-    "created_at": "2026-06-04T11:00:00Z",
-    "updated_at": "2026-06-04T11:00:00Z",
-    "summary": "Dashboard bug",
-    "description": "Charts not loading",
-    "status": 2,
-    "project": 5,
-    "is_deleted": false,
-    "type": [
-      4
-    ]
-  }
-},
-{
-  "model": "issue_tracker.issuemodel",
-  "pk": 29,
-  "fields": {
-    "created_at": "2026-06-05T10:00:00Z",
-    "updated_at": "2026-06-05T10:00:00Z",
-    "summary": "Payment gateway",
-    "description": "Integrate Stripe",
-    "status": 1,
-    "project": 6,
-    "is_deleted": false,
-    "type": [
-      3
-    ]
-  }
-},
-{
-  "model": "issue_tracker.issuemodel",
-  "pk": 30,
-  "fields": {
-    "created_at": "2026-06-05T11:00:00Z",
-    "updated_at": "2026-06-05T11:00:00Z",
-    "summary": "Refund bug",
-    "description": "Refunds not processing",
-    "status": 2,
-    "project": 6,
-    "is_deleted": false,
-    "type": [
-      4
-    ]
-  }
-},
-{
-  "model": "issue_tracker.issuemodel",
-  "pk": 31,
-  "fields": {
-    "created_at": "2026-06-05T12:00:00Z",
-    "updated_at": "2026-06-05T12:00:00Z",
-    "summary": "Invoice generation",
-    "description": "Auto generate invoices",
-    "status": 3,
-    "project": 6,
-    "is_deleted": false,
-    "type": [
-      5
-    ]
-  }
-},
-{
-  "model": "issue_tracker.issuemodel",
-  "pk": 32,
-  "fields": {
-    "created_at": "2026-06-06T10:00:00Z",
-    "updated_at": "2026-06-06T10:00:00Z",
-    "summary": "Add charts",
-    "description": "Add bar charts",
-    "status": 1,
-    "project": 7,
-    "is_deleted": false,
-    "type": [
-      5
-    ]
-  }
-},
-{
-  "model": "issue_tracker.issuemodel",
-  "pk": 33,
-  "fields": {
-    "created_at": "2026-06-06T11:00:00Z",
-    "updated_at": "2026-06-06T11:00:00Z",
-    "summary": "Export to CSV",
-    "description": "Export data to CSV",
-    "status": 2,
-    "project": 7,
-    "is_deleted": false,
-    "type": [
-      3
-    ]
-  }
-},
-{
-  "model": "issue_tracker.issuemodel",
-  "pk": 34,
-  "fields": {
-    "created_at": "2026-06-07T10:00:00Z",
-    "updated_at": "2026-06-07T10:00:00Z",
-    "summary": "Email notifications",
-    "description": "Send email alerts",
-    "status": 1,
-    "project": 8,
-    "is_deleted": false,
-    "type": [
-      3
-    ]
-  }
-},
-{
-  "model": "issue_tracker.issuemodel",
-  "pk": 35,
-  "fields": {
-    "created_at": "2026-06-07T11:00:00Z",
-    "updated_at": "2026-06-07T11:00:00Z",
-    "summary": "SMS bug",
-    "description": "SMS not sending",
-    "status": 2,
-    "project": 8,
-    "is_deleted": false,
-    "type": [
-      4
-    ]
-  }
-},
-{
-  "model": "issue_tracker.issuemodel",
-  "pk": 36,
-  "fields": {
-    "created_at": "2026-06-07T12:00:00Z",
-    "updated_at": "2026-06-07T12:00:00Z",
-    "summary": "Webhook support",
-    "description": "Add webhook support",
-    "status": 3,
-    "project": 8,
-    "is_deleted": false,
-    "type": [
-      5
-    ]
-  }
-},
-{
-  "model": "issue_tracker.issuemodel",
-  "pk": 37,
-  "fields": {
-    "created_at": "2026-06-22T11:40:50.111Z",
-    "updated_at": "2026-06-22T11:40:50.111Z",
-    "summary": "is_333w",
-    "description": "ergfw",
-    "status": 2,
-    "project": 1,
-    "is_deleted": false,
-    "type": [
-      4,
-      5
-    ]
-  }
-}
 ]
